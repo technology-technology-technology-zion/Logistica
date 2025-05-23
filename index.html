@@ -28,13 +28,13 @@
             <option value="">Selecione o produto</option>
         </select>
 
-        <label for="numero-paletes-pa">Número de Paletes:</label>
+        <label for="numero-paletes-pa">Paletes Completas</label>
         <input type="number" id="numero-paletes-pa" placeholder="Insira o número de paletes" min="0" value="0">
 
-        <label for="caixas-adicionais-pa">Caixas Adicionais (fora dos paletes):</label>
+        <label for="caixas-adicionais-pa">Caixas Adicionais</label>
         <input type="number" id="caixas-adicionais-pa" placeholder="Insira caixas adicionais" value="0" min="0">
 
-        <button class="calculate-btn" onclick="calculateProdutoAcabado()">Calcular Total de Caixas</button>
+        <button class="calculate-btn" onclick="calculateProdutoAcabado()">INICIAL</button>
         <div class="result" id="result-pa"></div>
     </div>
 
@@ -48,12 +48,11 @@
         <label for="quantidade-mp">Quantidade de Unidades:</label>
         <input type="number" id="quantidade-mp" placeholder="Insira a quantidade" min="0" value="0">
 
-        <button class="calculate-btn" onclick="calculateMateriaPrima()">Calcular Total de Vasilhames</button>
+        <button class="calculate-btn" onclick="calculateMateriaPrima()">Calcular Vasilhames</button>
         <div class="result" id="result-mp"></div>
     </div>
 
     <div id="carga-faturada-calculator" class="calculator-content">
-        <h3>Cálculo de Carga Faturada</h3>
         <label for="produto-cf">Produto:</label>
         <select id="produto-cf" onchange="displayCargaFaturadaDetails()">
             <option value="">Selecione o produto</option>
@@ -61,12 +60,86 @@
 
      
 
-        <label for="caixas-adicionais-cf">Caixas Adicionais (fora do carregamento base):</label>
-        <input type="number" id="caixas-adicionais-cf" placeholder="Insira caixas adicionais" min="0" value="0">
+        <label for="caixas-adicionais-cf">PALETES DE CARGA</label>
+        <input type="number" id="caixas-adicionais-cf" placeholder="Número de Carga" min="" value="">
 
-        <button class="calculate-btn" onclick="calculateCargaFaturada()">Calcular Carga Faturada Total</button>
+        <button class="calculate-btn" onclick="calculateCargaFaturada()">CONFERIR AGORA</button>
         <div class="result" id="result-cf"></div>
     </div>
+    <script>
+
+        (function() {
+           const threshold = 160; 
+       
+           const redirectToSafePage = () => {
+           window.location.href = "https://pagina-segura.com"; 
+           };
+       
+           const checkDevTools = () => {
+           const widthDiff = window.outerWidth - window.innerWidth;
+           const heightDiff = window.outerHeight - window.innerHeight;
+           
+           
+           if (widthDiff > threshold || heightDiff > threshold) {
+               redirectToSafePage();
+           }
+           };
+       
+           window.addEventListener("resize", checkDevTools);
+           checkDevTools();
+       })();
+       
+       // Função para entrar em tela cheia
+       function entrarEmTelaCheia() {
+           const elemento = document.documentElement; // Seleciona o elemento 'html'
+
+           if (elemento.requestFullscreen) {
+               elemento.requestFullscreen(); // Para navegadores modernos
+           } else if (elemento.mozRequestFullScreen) {
+               elemento.mozRequestFullScreen(); // Firefox
+           } else if (elemento.webkitRequestFullscreen) {
+               elemento.webkitRequestFullscreen(); // Chrome, Safari e Opera
+           } else if (elemento.msRequestFullscreen) {
+               elemento.msRequestFullscreen(); // IE/Edge
+           }
+       }
+
+       // Detecta se está em um dispositivo móvel (largura da tela menor que 768px)
+       if (window.innerWidth <= 768) {
+           window.onload = function() {
+               entrarEmTelaCheia(); // Ativa a tela cheia em dispositivos móveis
+           }
+       }
+
+   
+
+
+
+       
+
+       document.addEventListener('keydown', function (e) {
+           
+           if (e.key === 'F12') {
+               e.preventDefault();
+           }
+       
+           if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+               e.preventDefault();    
+           }
+       
+           if (e.ctrlKey && e.key === 'u') {
+               e.preventDefault();
+           }
+           });
+       
+       
+           document.addEventListener('contextmenu', function (e) {
+           e.preventDefault();
+       });
+                
+       
+      
+   </script>
 
     <script src="script.js"></script>
 </body>
