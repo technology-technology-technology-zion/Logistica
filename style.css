@@ -1,0 +1,280 @@
+/* style.css */
+
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
+    margin: 0; /* Remove margens padrão do corpo */
+    padding: 15px; /* Padding geral para afastar o conteúdo das bordas em telas pequenas */
+    background-color: #f4f4f4; /* Fundo cinza claro para um visual suave */
+    color: #333; /* Cor de texto principal, um cinza escuro suave */
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+    display: flex; /* Para centralizar o conteúdo principal */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total do elemento */
+}
+
+/* Contêiner do logo */
+.logo-container {
+    text-align: center; /* Centraliza a imagem do logo */
+    margin-bottom: 0px; /* Espaço abaixo do logo */
+    width: 100%; /* Ocupa a largura total para centralização */
+}
+
+.logo {
+    max-width: 180px; /* Largura máxima do logo ajustada para telas menores */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Garante que a imagem se comporte como um bloco para margin auto */
+    margin: 0 auto; /* Centraliza a imagem do logo */
+}
+
+/* Estilo para o contêiner principal de cada seção (seleção e calculadoras) */
+/* Este é o div que envolve todo o conteúdo principal, adicionando um cartão visual */
+body > div {
+    background-color: #fff; /* Fundo branco para os cartões */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07); /* Sombra mais sutil */
+    padding: 25px; /* Padding interno generoso */
+    margin-bottom: 25px; /* Espaço entre os cartões */
+    width: 100%; /* Ocupa a largura total disponível */
+    max-width: 700px; /* Largura máxima para desktop/tablet, será sobrescrita por media queries */
+    box-sizing: border-box;
+}
+
+/* Estilos específicos para a seção de seleção de calculadora */
+.calculator-selection {
+    text-align: center; /* Centraliza o texto e os botões */
+    margin-top: 0; /* Remove margem superior extra se body > div já aplicar */
+}
+
+.calculator-selection h2 {
+    color: #fd10b6; /* Cor de título mais escura e profissional */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    font-size: 1.6em; /* Tamanho do título ajustado para telas menores */
+    font-weight: 600; /* Levemente mais negrito */
+}
+
+.calculator-selection button {
+    background-color: #000000; /* Azul primário */
+    color: #fff; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 12px 20px; /* Padding para botões */
+    border-radius: 6px; /* Cantos arredondados */
+    cursor: pointer; /* Cursor de mão ao passar por cima */
+    font-size: 16px; /* Tamanho da fonte dos botões */
+    margin: 6px 0; /* Margem vertical para botões empilhados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+    width: 100%; /* Ocupa a largura total em telas pequenas */
+    max-width: 250px; /* Limita a largura para botões em telas maiores */
+    display: block; /* Garante que cada botão fique em sua própria linha */
+    font-weight: 500; /* Levemente negrito */
+}
+
+.calculator-selection button:hover {
+    background-color: #d30505; /* Azul mais escuro no hover */
+    transform: translateY(-2px); /* Efeito sutil de levantar */
+}
+
+/* Estilos para as calculadoras individuais (Produto Acabado, Matéria Prima, Carga Faturada) */
+.calculator-content {
+    display: none; /* Escondido por padrão, JavaScript irá mostrar */
+    background-color: #fff; /* Fundo branco */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+    margin-bottom: 20px;
+}
+
+.calculator-content h3 {
+    color: #2c3e50;
+    margin-bottom: 18px;
+    text-align: center;
+    font-size: 1.5em; /* Tamanho do título ajustado */
+    font-weight: 600;
+}
+
+.calculator-content label {
+    display: block; /* Cada label em uma nova linha */
+    margin-bottom: 6px; /* Espaço abaixo do label */
+    font-weight: 600; /* Texto do label mais negrito */
+    color: #555; /* Cor um pouco mais escura para labels */
+    font-size: 1em; /* Tamanho da fonte do label */
+}
+
+.calculator-content select,
+.calculator-content input[type="number"] {
+    width: calc(100% - 20px); /* Largura total menos padding */
+    padding: 10px; /* Padding interno */
+    margin-bottom: 18px; /* Espaço abaixo do input/select */
+    border: 1px solid #dcdcdc; /* Borda suave */
+    border-radius: 5px; /* Cantos levemente arredondados */
+    font-size: 14px; /* Tamanho da fonte */
+    color: #333;
+    background-color: #fcfcfc; /* Leve fundo para inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave no foco */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+.calculator-content select:focus,
+.calculator-content input[type="number"]:focus {
+    border-color: #ff0000; /* Borda azul no foco */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* Sombra sutil no foco */
+    outline: none; /* Remove outline padrão */
+}
+
+/* Remove a aparência padrão do select e adiciona uma seta personalizada */
+.calculator-content select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center; /* Posição da seta */
+    background-size: 18px; /* Tamanho da seta */
+    cursor: pointer;
+}
+
+/* Botão de cálculo */
+.calculator-content button.calculate-btn {
+    background-color: #000000; /* Verde para ação principal */
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* Padding maior para o botão de cálculo */
+    border-radius: 6px; /* Cantos arredondados */
+    cursor: pointer;
+    font-size: 16px; /* Fonte maior */
+    font-weight: 600; /* Mais negrito */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+    display: block;
+    width: 100%; /* Largura total */
+    margin-top: 0px; /* Espaço acima do botão */
+}
+
+.calculator-content button.calculate-btn:hover {
+    background-color: #f80808; /* Verde mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+/* Estilo para a caixa de resultado */
+.calculator-content .result {
+    margin-top: 20px; /* Espaço acima do resultado */
+    padding: 18px; /* Padding interno */
+    background-color: #e6f7ff; /* Fundo azul claro para destaque */
+    border-radius: 6px; /* Cantos arredondados */
+    font-size: 18px; /* Fonte para o resultado */
+    font-weight: bold; /* Negrito */
+    text-align: center; /* Centraliza o texto */
+    color: #ff5e00; /* Cor de texto azul escuro */
+    border: 1px solid #000000; /* Borda sutil */
+}
+
+/* Estilo para os detalhes do produto na Carga Faturada */
+.calculator-content #cf-product-details {
+    margin-top: 18px;
+    padding: 16px;
+    border: 1px dashed #aed6f1; /* Borda tracejada azul clara */
+    border-radius: 6px;
+    background-color: #f2f8ff; /* Fundo azul muito claro */
+    font-size: 14px;
+    color: #0381ff; /* Cor de texto suave */
+}
+
+.calculator-content #cf-product-details p {
+    margin-bottom: 5px; /* Espaço entre os parágrafos de detalhe */
+}
+
+.calculator-content #cf-product-details p:last-child {
+    margin-bottom: 0; /* Remove margem do último parágrafo */
+}
+
+.calculator-content #cf-product-details strong {
+    color: #2c3e50; /* Negrito para os títulos dos detalhes */
+}
+
+/* Media Queries para Telas Maiores (Desktop/Tablet) */
+@media (min-width: 768px) {
+    body {
+        padding: 30px; /* Mais padding em telas maiores */
+    }
+
+    .logo {
+        max-width: 180px; /* Logo maior em telas grandes */
+    }
+
+    body > div {
+        padding: 35px; /* Mais padding nos cartões */
+        border-radius: 12px; /* Cantos mais arredondados */
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+        margin-bottom: 30px;
+    }
+
+    .calculator-selection h2 {
+        font-size: 0em; /* Título maior */
+    }
+
+    .calculator-selection button {
+        width: auto; /* Botões não ocupam 100% da largura em telas maiores */
+        min-width: 180px; /* Largura mínima para botões consistentes */
+        margin: 8px; /* Margem horizontal para botões lado a lado */
+        display: inline-block; /* Permite que os botões fiquem lado a lado */
+        font-size: 16px;
+        padding: 12px 25px;
+        border-radius: 8px;
+    }
+
+    .calculator-content h3 {
+        font-size: 0px;
+    }
+
+    .calculator-content label {
+        font-size: 16px;
+    }
+
+    .calculator-content select,
+    .calculator-content input[type="number"] {
+        padding: 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        width: calc(100% - 24px); /* Ajuste para padding maior */
+    }
+
+    .calculator-content button.calculate-btn {
+        padding: 16px 35px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .calculator-content .result {
+        font-size: 22px;
+        padding: 22px;
+        border-radius: 8px;
+    }
+
+    .calculator-content #cf-product-details {
+        font-size: 16px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+}
+
+
+
+.calculator-content .result {
+    margin-top: 20px;
+    padding: 18px;
+    background-color: #e6f7ff;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Mantém o texto centralizado */
+    color: #0056b3;
+    border: 1px solid #b3e0ff;
+
+    /* Novas propriedades para centralizar a caixa horizontalmente */
+    max-width: 300px; /* Define uma largura máxima para a caixa do resultado */
+    margin-left: auto; /* Centraliza a caixa à esquerda */
+    margin-right: auto; /* Centraliza a caixa à direita */
+    /* Ou, uma forma mais curta: */
+    /* margin: 20px auto 0 auto; /* Top, Right&Left (auto), Bottom, Left */
+}

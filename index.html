@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="calculator-selection">
+        <img src="logo.png" alt="Logo da Empresa" class="logo">
+        <h2></h2>
+        <button onclick="showCalculator('produto-acabado')">Produto Acabado</button>
+        <button onclick="showCalculator('materia-prima')">Matéria Prima</button>
+        <button onclick="showCalculator('carga-faturada')">Carga Faturada</button>
+    </div>
+    <div id="produto-acabado-calculator" class="calculator-content">
+        <h3></h3>
+        <label for="tipo-palete"></label>
+        <select id="tipo-palete" onchange="populateProducts()">
+            <option value="">Selecione o tipo de palete</option>
+            <option value="plastico">Plástico</option>
+            <option value="madeira">Madeira</option>
+        </select>
+
+        <label for="produto-pa"></label>
+        <select id="produto-pa">
+            <option value="">Selecione o produto</option>
+        </select>
+
+        <label for="numero-paletes-pa">Número de Paletes:</label>
+        <input type="number" id="numero-paletes-pa" placeholder="Insira o número de paletes" min="0" value="0">
+
+        <label for="caixas-adicionais-pa">Caixas Adicionais (fora dos paletes):</label>
+        <input type="number" id="caixas-adicionais-pa" placeholder="Insira caixas adicionais" value="0" min="0">
+
+        <button class="calculate-btn" onclick="calculateProdutoAcabado()">Calcular Total de Caixas</button>
+        <div class="result" id="result-pa"></div>
+    </div>
+
+    <div id="materia-prima-calculator" class="calculator-content">
+        <h3>Cálculo de Matéria Prima</h3>
+        <label for="tipo-mp">Tipo de Matéria Prima:</label>
+        <select id="tipo-mp">
+            <option value="">Selecione o tipo</option>
+            </select>
+
+        <label for="quantidade-mp">Quantidade de Unidades:</label>
+        <input type="number" id="quantidade-mp" placeholder="Insira a quantidade" min="0" value="0">
+
+        <button class="calculate-btn" onclick="calculateMateriaPrima()">Calcular Total de Vasilhames</button>
+        <div class="result" id="result-mp"></div>
+    </div>
+
+    <div id="carga-faturada-calculator" class="calculator-content">
+        <h3>Cálculo de Carga Faturada</h3>
+        <label for="produto-cf">Produto:</label>
+        <select id="produto-cf" onchange="displayCargaFaturadaDetails()">
+            <option value="">Selecione o produto</option>
+            </select>
+
+     
+
+        <label for="caixas-adicionais-cf">Caixas Adicionais (fora do carregamento base):</label>
+        <input type="number" id="caixas-adicionais-cf" placeholder="Insira caixas adicionais" min="0" value="0">
+
+        <button class="calculate-btn" onclick="calculateCargaFaturada()">Calcular Carga Faturada Total</button>
+        <div class="result" id="result-cf"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
