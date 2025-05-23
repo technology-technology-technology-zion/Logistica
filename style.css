@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
     margin: 0; /* Remove margens padrão do corpo */
     padding: 15px; /* Padding geral para afastar o conteúdo das bordas em telas pequenas */
-    background-color: #f4f4f4; /* Fundo cinza claro para um visual suave */
+    background-color: #252525; /* Fundo cinza claro para um visual suave */
     color: #333; /* Cor de texto principal, um cinza escuro suave */
     line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
     display: flex; /* Para centralizar o conteúdo principal */
